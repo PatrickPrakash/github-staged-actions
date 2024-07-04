@@ -17,18 +17,8 @@ jobs:
       environment: dev
     secrets: inherit
 
-  staging-approval-gate:
-    needs: dev-deploy
-    environment: staging
-    runs-on: ubuntu-latest
-    steps:
-      - name: approved
-        env:
-          ENV_NAME: Staging
-        run: echo Approve
-
   staging-deploy:
-    needs: staging-approval-gate
+    needs:  dev-deploy
     uses: ./.github/workflows/deploy-environment.yml
     with:
       environment: staging
