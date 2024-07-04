@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+
+  unit-test:
+    uses: ./.github/workflows/unit-test.yml
+
+  dev-deploy:
+    needs: [build, unit-test]
+    uses: ./.github/workflows/deploy-environment.yml
+    with:
+      environment: dev
+    secrets: inherit
+
+  staging-approval-gate:
+    needs: dev-deploy
+    environment: staging
+    runs-on: ubuntu-latest
+    steps:
+      - name: approved
+        env:
+          ENV_NAME: Staging
+        run: write-host "Approve for $($env.ENV_NAME)"
+
+  staging-deploy:
+    needs: staging-approval-gate
+    uses: ./.github/workflows/deploy-environment.yml
+    with:
+      environment: staging
+    secrets: inherit

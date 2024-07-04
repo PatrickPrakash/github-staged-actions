@@ -1,0 +1,10 @@
+name: unit-test
+
+on:
+  workflow_call:
+
+jobs:
+  unit-test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Testing the GO Application"

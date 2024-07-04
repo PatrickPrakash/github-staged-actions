@@ -1,0 +1,23 @@
+name: Deploy to the environment
+on:
+  workflow_call:
+    inputs:
+      environment:
+        description: "Name of the environment to deploy"
+        required: true
+        type: string
+
+jobs:
+  Deploy:
+    name: Deployment
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Configure the AWS credentials
+        run: echo "Configuring the AWS credentials"
+
+      - name: Login to Amazon ECR
+        run: echo "Logining to Amazon ECR"
+
+      - name: Deploy to the kubernetes namespace
+        run: echo Deploying to ${{secrets.NAMESPACE}} NAMESPACE
