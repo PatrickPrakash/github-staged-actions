@@ -11,6 +11,7 @@ jobs:
   Deploy:
     name: Deployment
     runs-on: ubuntu-latest
+    environment: ${{inputs.environment}}
 
     steps:
       - name: Configure the AWS credentials
