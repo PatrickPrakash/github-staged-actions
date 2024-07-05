@@ -21,4 +21,4 @@ jobs:
         run: echo "Logining to Amazon ECR"
 
       - name: Deploy to the kubernetes namespace
-        run: echo Deploying to ${{vars.NAMESPACE}} NAMESPACE
+        run: echo "Deploying to ${{vars.NAMESPACE}} NAMESPACE"
