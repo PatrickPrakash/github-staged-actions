@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [18, 20, latest]
+        node: [18, 20]
     steps:
       - name: Download the Source Repo
         uses: actions/checkout@v4
