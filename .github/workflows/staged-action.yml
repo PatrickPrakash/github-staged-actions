@@ -5,7 +5,7 @@ on:
     branches: [main]
 jobs:
   build:
-    uses: ./.github/workflows/build-go.yml
+    uses: ./.github/workflows/build-node.yml
 
   unit-test:
     uses: ./.github/workflows/unit-test.yml
