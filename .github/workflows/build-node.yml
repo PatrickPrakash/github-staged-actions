@@ -10,9 +10,6 @@ permissions:
 jobs:
   build-code:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [18, 20]
     steps:
       - name: Download the Source Repo
         uses: actions/checkout@v4
@@ -24,10 +21,10 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::590183666822:role/build-role-for-github
           aws-region: us-east-1
-      - name: Setup Node Version ${{matrix.node}}
+      - name: Setup Node Version
         uses: actions/setup-node@v4
         with:
-          node-version: ${{matrix.node}}
+          node-version: lts
       - name: Read Version
         id: Release
         run: |
