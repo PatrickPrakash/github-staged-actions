@@ -1,5 +1,5 @@
 # Use latest node as parent image
-FROM node:lts
+FROM node:lts-slim
 
 # Change the working directory on the Docker image to /app
 WORKDIR /app
