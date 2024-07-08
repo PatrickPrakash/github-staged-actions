@@ -20,7 +20,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::590183666822:role/build-role-for-github
-          aws-region: us-east-1
+          aws-region: eu-west-1
       - name: Setup Node Version
         uses: actions/setup-node@v4
         with:
