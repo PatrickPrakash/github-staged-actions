@@ -10,12 +10,12 @@ permissions:
 jobs:
   build-code:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: node
     steps:
       - name: Download the Source Repo
         uses: actions/checkout@v4
-        with:
-          sparse-checkout: |
-            node
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
