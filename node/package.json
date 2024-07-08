@@ -1,0 +1,12 @@
+{
+  "name": "build-node",
+  "version": "0.0.1",
+  "description": "Sample node app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
