@@ -40,5 +40,5 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
           VERSION: ${{steps.Release.outputs.version}}
         run: |
-          docker build -t test-node:$VERSION .
+          docker build -t $REGISTRY/$REPOSITORY/test-node:$VERSION .
           docker push "$REGISTRY/$REPOSITORY/test-node:$VERSION"
